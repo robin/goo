@@ -20,4 +20,7 @@
 - (IBAction)openInFinder:(id)sender;
 - (IBAction)openInEditor:(id)sender;
 - (IBAction)openInHomepage:(id)sender;
+
+- (IBAction)donate:(id)sender;
+- (IBAction)homepage:(id)sender;
 @end
