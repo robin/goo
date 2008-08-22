@@ -11,15 +11,18 @@
 #import <WebKit/WebKit.h>
 
 @implementation GooController
+static NSString *zoomFactorIdentifier = @"zoom factor";
 
 - (void)awakeFromNib
 {
-	if([[NSUserDefaults standardUserDefaults] floatForKey:@"zoom factor"]!=0)
+	float zoomFactor = [[NSUserDefaults standardUserDefaults] floatForKey:zoomFactorIdentifier];
+	if(0!=zoomFactor)
 	{
-		[webView setTextSizeMultiplier:[[NSUserDefaults standardUserDefaults] floatForKey:@"zoom factor"]];
+		[webView setTextSizeMultiplier:zoomFactor];
 	}
 }
 
+#pragma mark table view delegate
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification
 {
 	[gemInfoView reloadData];
@@ -40,11 +43,28 @@
 	[[webView mainFrame] loadRequest:request];
 }
 
+#pragma mark window view delegate
 - (void)windowWillClose:(NSNotification *)notification
 {
 	float zoomFactor = [webView textSizeMultiplier];
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-	[userDefaults setFloat:zoomFactor forKey:@"zoom factor"];
+	[userDefaults setFloat:zoomFactor forKey:zoomFactorIdentifier];
 	[userDefaults synchronize];
 }
+
+#pragma mark table view menu
+- (IBAction)openInFinder:(id)sender
+{
+	NSDictionary *selected = [[gemArrayController selectedObjects] objectAtIndex:0];
+	NSString *path = [selected objectForKey:@"path"];
+	[[NSWorkspace sharedWorkspace] openFile:path];
+}
+
+- (IBAction)openInEditor:(id)sender
+{
+	NSDictionary *selected = [[gemArrayController selectedObjects] objectAtIndex:0];
+	NSString *path = [selected objectForKey:@"path"];
+	[[NSWorkspace sharedWorkspace] openFile:path withApplication:@"TextMate"];
+}
+
 @end

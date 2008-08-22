@@ -14,6 +14,7 @@
 		C365118F0E5EACFE007969B9 /* GemInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C365118E0E5EACFE007969B9 /* GemInfoView.m */; };
 		C365122A0E5EBE09007969B9 /* GooController.m in Sources */ = {isa = PBXBuildFile; fileRef = C36512290E5EBE09007969B9 /* GooController.m */; };
 		C365135F0E5EEB57007969B9 /* goo.icns in Resources */ = {isa = PBXBuildFile; fileRef = C365135E0E5EEB57007969B9 /* goo.icns */; };
+		C36513BA0E5EFE7D007969B9 /* GemTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36513B90E5EFE7D007969B9 /* GemTableView.m */; };
 		C3806F5D0E5D2681005E7585 /* gem_helper.rb in Resources */ = {isa = PBXBuildFile; fileRef = C3806F5C0E5D2681005E7585 /* gem_helper.rb */; };
 		C3806F640E5D2D0C005E7585 /* GemSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = C3806F630E5D2D0C005E7585 /* GemSpecs.m */; };
 		C380702C0E5D31BB005E7585 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C380702B0E5D31BB005E7585 /* WebKit.framework */; };
@@ -35,6 +36,8 @@
 		C36512280E5EBE09007969B9 /* GooController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GooController.h; sourceTree = "<group>"; };
 		C36512290E5EBE09007969B9 /* GooController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GooController.m; sourceTree = "<group>"; };
 		C365135E0E5EEB57007969B9 /* goo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = goo.icns; sourceTree = "<group>"; };
+		C36513B80E5EFE7D007969B9 /* GemTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemTableView.h; sourceTree = "<group>"; };
+		C36513B90E5EFE7D007969B9 /* GemTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemTableView.m; sourceTree = "<group>"; };
 		C3806F5C0E5D2681005E7585 /* gem_helper.rb */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = gem_helper.rb; sourceTree = "<group>"; };
 		C3806F620E5D2D0C005E7585 /* GemSpecs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemSpecs.h; sourceTree = "<group>"; };
 		C3806F630E5D2D0C005E7585 /* GemSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemSpecs.m; sourceTree = "<group>"; };
@@ -63,6 +66,8 @@
 				C365118E0E5EACFE007969B9 /* GemInfoView.m */,
 				C36512280E5EBE09007969B9 /* GooController.h */,
 				C36512290E5EBE09007969B9 /* GooController.m */,
+				C36513B80E5EFE7D007969B9 /* GemTableView.h */,
+				C36513B90E5EFE7D007969B9 /* GemTableView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				C3806F640E5D2D0C005E7585 /* GemSpecs.m in Sources */,
 				C365118F0E5EACFE007969B9 /* GemInfoView.m in Sources */,
 				C365122A0E5EBE09007969B9 /* GooController.m in Sources */,
+				C36513BA0E5EFE7D007969B9 /* GemTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

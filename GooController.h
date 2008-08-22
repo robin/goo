@@ -17,4 +17,7 @@
 	IBOutlet NSArrayController* gemArrayController;
 }
 
+- (IBAction)openInFinder:(id)sender;
+- (IBAction)openInEditor:(id)sender;
+
 @end

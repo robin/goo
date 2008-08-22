@@ -20,6 +20,8 @@ module GemHelper
       <dict>
         <key>authors</key>
         <string><%= h spec.authors.sort.join(", ") %></string>
+		<key>path</key>
+		<string><%= h spec.full_gem_path %></string>
         <key>date</key>
         <date><%= h spec.date.strftime('%Y-%m-%dT%H:%M:%SZ') %></date>
         <key>doc_path</key>

@@ -20,7 +20,6 @@
 {
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"gem_helper" ofType:@"rb"];
 	NSTask *task = [[NSTask alloc] init];
-	NSLog(path);
 	[task setLaunchPath:path];
 	NSPipe *outPipe = [[NSPipe alloc] init];
 	[task setStandardOutput:outPipe];
@@ -36,7 +35,6 @@
 							errorDescription:&error];
 	if (!gemSpecIndex)
 		NSLog(error);
-	NSLog(@"spec list: %@", gemSpecIndex);
 	[self sort];
 	return self;
 }
