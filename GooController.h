@@ -19,5 +19,5 @@
 
 - (IBAction)openInFinder:(id)sender;
 - (IBAction)openInEditor:(id)sender;
-
+- (IBAction)openInHomepage:(id)sender;
 @end

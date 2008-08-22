@@ -40,7 +40,7 @@ static NSString *zoomFactorIdentifier = @"zoom factor";
 		url = [NSURL fileURLWithPath:path];
 	
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
-	[[webView mainFrame] loadRequest:request];
+	[[webView mainFrame] loadRequest:request];	
 }
 
 #pragma mark window view delegate
@@ -67,4 +67,11 @@ static NSString *zoomFactorIdentifier = @"zoom factor";
 	[[NSWorkspace sharedWorkspace] openFile:path withApplication:@"TextMate"];
 }
 
+- (IBAction)openInHomepage:(id)sender
+{
+	NSDictionary *selected = [[gemArrayController selectedObjects] objectAtIndex:0];
+	NSString *path = [selected objectForKey:@"homepage"];
+	NSURL *url = [NSURL URLWithString:path];
+	[[NSWorkspace sharedWorkspace] openURL:url];
+}
 @end

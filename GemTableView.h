@@ -10,7 +10,7 @@
 
 
 @interface GemTableView : NSTableView {
-
+	IBOutlet NSArrayController *controller;
 }
 
 @end

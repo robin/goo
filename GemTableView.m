@@ -18,6 +18,13 @@
 	if (i < [self numberOfRows] && ![[self selectedRowIndexes] containsIndex:i]) {
 		[self selectRowIndexes:[NSIndexSet indexSetWithIndex:i] byExtendingSelection:NO];
 	}
+
+	NSDictionary *selected = [[controller arrangedObjects] objectAtIndex:i];
+
+	NSMenu *cMenu = [self menu];
+	NSMenuItem *item = [cMenu itemWithTag:3];
+	BOOL enabled = [[selected objectForKey:@"homepage"] length] > 7;
+	[item setEnabled:enabled];
 	
 	[super rightMouseDown:theEvent];
 }
