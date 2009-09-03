@@ -15,6 +15,8 @@
 	IBOutlet WebView*	webView;
 	IBOutlet NSTableView* gemInfoView;
 	IBOutlet NSArrayController* gemArrayController;
+	IBOutlet NSSegmentedControl *historyItemView;
+    IBOutlet NSSearchField  *searchField;
 }
 
 - (IBAction)openInFinder:(id)sender;
@@ -23,4 +25,6 @@
 
 - (IBAction)donate:(id)sender;
 - (IBAction)homepage:(id)sender;
+- (IBAction)history:(id)sender;
+- (IBAction)search:(id)sender;
 @end

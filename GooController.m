@@ -13,12 +13,19 @@
 @implementation GooController
 static NSString *zoomFactorIdentifier = @"zoom factor";
 
+- (void)setHistoryBar
+{
+    [historyItemView setEnabled:[webView canGoBack] forSegment:0];
+    [historyItemView setEnabled:[webView canGoForward] forSegment:1];
+}
+
 - (void)awakeFromNib
 {
 	float zoomFactor = [[NSUserDefaults standardUserDefaults] floatForKey:zoomFactorIdentifier];
 	if(0!=zoomFactor)
 	{
 		[webView setTextSizeMultiplier:zoomFactor];
+        [self setHistoryBar];
 	}
 }
 
@@ -75,6 +82,28 @@ static NSString *zoomFactorIdentifier = @"zoom factor";
 	[[NSWorkspace sharedWorkspace] openURL:url];
 }
 
+#pragma mark browser
+- (IBAction)history:(id)sender
+{
+    NSSegmentedCell * segCell = sender;
+	switch ([segCell selectedSegment]) {
+		case 0:
+            [webView goBack];
+			break;
+		case 1:
+			[webView goForward];
+			break;
+		default:
+			break;
+	}    
+    [self setHistoryBar];
+}
+
+- (IBAction)search:(id)sender
+{
+    NSString *searchString = [searchField stringValue];
+    [webView searchFor:searchString direction:YES caseSensitive:NO wrap:NO];
+}
 #pragma mark Links
 - (IBAction)donate:(id)sender
 {
@@ -86,4 +115,9 @@ static NSString *zoomFactorIdentifier = @"zoom factor";
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.robinlu.com/blog/goo"]];
 }
 
+#pragma mark webview frame delegate
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
+{
+    [self setHistoryBar];    
+}
 @end
