@@ -120,4 +120,13 @@ static NSString *zoomFactorIdentifier = @"zoom factor";
 {
     [self setHistoryBar];    
 }
+
+#pragma mark actions
+- (IBAction)reload:(id)sender
+{
+    [gemSpecs release];
+    gemSpecs = [[GemSpecs alloc] init];
+    [gemArrayController setContent:gemSpecs.gemSpecIndex];
+    [gemListView reloadData];
+}
 @end

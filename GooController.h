@@ -17,6 +17,7 @@
 	IBOutlet NSArrayController* gemArrayController;
 	IBOutlet NSSegmentedControl *historyItemView;
     IBOutlet NSSearchField  *searchField;
+    IBOutlet NSTableView* gemListView;
 }
 
 - (IBAction)openInFinder:(id)sender;
@@ -27,4 +28,5 @@
 - (IBAction)homepage:(id)sender;
 - (IBAction)history:(id)sender;
 - (IBAction)search:(id)sender;
+- (IBAction)reload:(id)sender;
 @end
