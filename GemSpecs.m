@@ -34,7 +34,7 @@
 							format:&format
 							errorDescription:&error];
 	if (!gemSpecIndex)
-		NSLog(error);
+		NSLog(@"%@", error);
 	[self sort];
 	return self;
 }
