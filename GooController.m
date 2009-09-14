@@ -240,4 +240,8 @@ static NSString *zoomFactorIdentifier = @"zoom factor";
     [webView goBack:sender];
 }
 
+- (IBAction)print:(id)sender
+{
+    [webView print:sender];
+}
 @end

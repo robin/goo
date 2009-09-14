@@ -39,6 +39,7 @@
 - (IBAction)makeTextSmaller:(id)sender;
 - (IBAction)goFoward:(id)sender;
 - (IBAction)goBack:(id)sender;
+- (IBAction)print:(id)sender;
 
 // tab
 - (IBAction)addNewTab:(id)sender;
