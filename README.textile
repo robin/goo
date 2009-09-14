@@ -1,0 +1,17 @@
+h2. Goo - Gem Document Viewer for Mac OS X
+
+Goo is a Ruby Gem Document Viewer for Mac OS X. Yes, gem server is very cool. But you may find Goo is also pretty handy.
+
+!http://www.robinlu.com/blog/images/goo.png!
+
+h3. Features
+
+* View gem document in standalone application without launching gem server.
+* View gem information.
+* Open gem directory in Finder.
+* Open gem in TextMate.
+* Open gem homepage.
+
+h3. Download
+
+Please go to the "home page":http://www.robinlu.com/blog/goo of Goo for the newest binary. 
