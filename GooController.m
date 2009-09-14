@@ -8,7 +8,14 @@
 
 #import "GooController.h"
 #import "GemSpecs.h"
+#import <PSMTabBarControl/PSMTabBarControl.h>
 #import <WebKit/WebKit.h>
+
+@interface GooController (Private)
+
+- (NSTabViewItem*)createViewInTab;
+
+@end
 
 @implementation GooController
 static NSString *zoomFactorIdentifier = @"zoom factor";
@@ -19,13 +26,27 @@ static NSString *zoomFactorIdentifier = @"zoom factor";
     [historyItemView setEnabled:[webView canGoForward] forSegment:1];
 }
 
+- (void)setupTabBar
+{
+	[tabBar setTabView:tabView];
+	[tabBar setPartnerView:tabView];
+	[tabBar setStyleNamed:@"Unified"];
+	[tabBar setDelegate:self];
+	[tabBar setShowAddTabButton:YES];
+	[tabBar setSizeCellsToFit:YES];
+	[[tabBar addTabButton] setTarget:self];
+	[[tabBar addTabButton] setAction:@selector(addNewTab:)];
+    [self addNewTab:self];
+}
+
 - (void)awakeFromNib
 {
 	float zoomFactor = [[NSUserDefaults standardUserDefaults] floatForKey:zoomFactorIdentifier];
+    [self setupTabBar];
+    [self setHistoryBar];
 	if(0!=zoomFactor)
 	{
 		[webView setTextSizeMultiplier:zoomFactor];
-        [self setHistoryBar];
 	}
 }
 
@@ -47,7 +68,7 @@ static NSString *zoomFactorIdentifier = @"zoom factor";
 		url = [NSURL fileURLWithPath:path];
 	
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
-	[[webView mainFrame] loadRequest:request];	
+	[[webView mainFrame] loadRequest:request];
 }
 
 #pragma mark window view delegate
@@ -118,7 +139,10 @@ static NSString *zoomFactorIdentifier = @"zoom factor";
 #pragma mark webview frame delegate
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {
-    [self setHistoryBar];    
+    [self setHistoryBar];
+    
+    NSTabViewItem *tabItem = [tabView selectedTabViewItem];
+    [tabItem setLabel:[webView mainFrameTitle]];
 }
 
 #pragma mark actions
@@ -129,4 +153,91 @@ static NSString *zoomFactorIdentifier = @"zoom factor";
     [gemArrayController setContent:gemSpecs.gemSpecIndex];
     [gemListView reloadData];
 }
+
+#pragma mark tab view
+- (NSTabViewItem*)createViewInTab
+{
+	// init the webview
+	WebView *newView = [[WebView alloc] init];
+	[newView setPolicyDelegate:self];
+	[newView setFrameLoadDelegate:self];
+	[newView setUIDelegate:self];
+	[newView setResourceLoadDelegate:self];
+	if([[NSUserDefaults standardUserDefaults] floatForKey:zoomFactorIdentifier]!=0)
+	{
+		[newView setTextSizeMultiplier:[[NSUserDefaults standardUserDefaults] floatForKey:zoomFactorIdentifier]];
+	}
+	
+	// create new tab item
+	NSTabViewItem *newItem = [[[NSTabViewItem alloc] init] autorelease];
+	[newItem setView:newView];
+    [newItem setLabel:@"(Untitled)"];
+	[newItem setIdentifier:newView];
+	
+	// add to tab view
+    [tabView addTabViewItem:newItem];
+	
+	[newView release];
+	return newItem;
+}
+
+- (IBAction)addNewTab:(id)sender
+{
+	NSTabViewItem *item = [self createViewInTab];
+	webView = [item identifier];
+	[tabView selectTabViewItem:item];    
+}
+
+- (IBAction)closeTab:(id)sender
+{
+    if([tabView numberOfTabViewItems] > 1)
+	{
+		NSTabViewItem * item = [tabView selectedTabViewItem];
+		[tabView removeTabViewItem:item];
+	}
+	else
+		[window close];    
+}
+
+- (void)tabView:(NSTabView *)tabView didCloseTabViewItem:(NSTabViewItem *)tabViewItem
+{
+}
+
+- (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem
+{
+	webView = [tabViewItem identifier];
+    [self setHistoryBar];
+}
+
+- (IBAction)selectNextTabViewItem:(id)sender
+{
+	[tabView selectNextTabViewItem:sender];
+}
+
+- (IBAction)selectPreviousTabViewItem:(id)sender
+{
+	[tabView selectPreviousTabViewItem:sender];
+}
+
+#pragma mark web view
+- (IBAction)makeTextLarger:(id)sender
+{
+    [webView makeTextLarger:sender];
+}
+
+- (IBAction)makeTextSmaller:(id)sender
+{
+    [webView makeTextSmaller:sender];
+}
+
+- (IBAction)goFoward:(id)sender
+{
+    [webView goForward:sender];
+}
+
+- (IBAction)goBack:(id)sender
+{
+    [webView goBack:sender];
+}
+
 @end

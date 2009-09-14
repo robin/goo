@@ -11,6 +11,8 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C31A3236105E09F3008F1ACF /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31A3235105E09F3008F1ACF /* PSMTabBarControl.framework */; };
+		C31A3262105E0A3A008F1ACF /* PSMTabBarControl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C31A3235105E09F3008F1ACF /* PSMTabBarControl.framework */; };
 		C365118F0E5EACFE007969B9 /* GemInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C365118E0E5EACFE007969B9 /* GemInfoView.m */; };
 		C365122A0E5EBE09007969B9 /* GooController.m in Sources */ = {isa = PBXBuildFile; fileRef = C36512290E5EBE09007969B9 /* GooController.m */; };
 		C365135F0E5EEB57007969B9 /* goo.icns in Resources */ = {isa = PBXBuildFile; fileRef = C365135E0E5EEB57007969B9 /* goo.icns */; };
@@ -20,6 +22,19 @@
 		C3806F640E5D2D0C005E7585 /* GemSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = C3806F630E5D2D0C005E7585 /* GemSpecs.m */; };
 		C380702C0E5D31BB005E7585 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C380702B0E5D31BB005E7585 /* WebKit.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C31A3278105E0A45008F1ACF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C31A3262105E0A3A008F1ACF /* PSMTabBarControl.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -32,6 +47,7 @@
 		32CA4F630368D1EE00C91783 /* goo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = goo_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* goo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = goo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C31A3235105E09F3008F1ACF /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = /Users/splyb/Library/Frameworks/PSMTabBarControl.framework; sourceTree = "<absolute>"; };
 		C365118D0E5EACFE007969B9 /* GemInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemInfoView.h; sourceTree = "<group>"; };
 		C365118E0E5EACFE007969B9 /* GemInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemInfoView.m; sourceTree = "<group>"; };
 		C36512280E5EBE09007969B9 /* GooController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GooController.h; sourceTree = "<group>"; };
@@ -53,6 +69,7 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				C380702C0E5D31BB005E7585 /* WebKit.framework in Frameworks */,
+				C31A3236105E09F3008F1ACF /* PSMTabBarControl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +106,7 @@
 				C380702B0E5D31BB005E7585 /* WebKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+				C31A3235105E09F3008F1ACF /* PSMTabBarControl.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -154,6 +172,7 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
+				C31A3278105E0A45008F1ACF /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -237,6 +256,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Library/Frameworks\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -254,6 +277,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Library/Frameworks\"",
+				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = goo_Prefix.pch;

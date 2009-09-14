@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 @class GemSpecs;
 @class WebView;
+@class PSMTabBarControl;
 
 @interface GooController : NSObject {
 	IBOutlet GemSpecs*	gemSpecs;
@@ -18,6 +19,9 @@
 	IBOutlet NSSegmentedControl *historyItemView;
     IBOutlet NSSearchField  *searchField;
     IBOutlet NSTableView* gemListView;
+    IBOutlet PSMTabBarControl* tabBar;
+    IBOutlet NSTabView*        tabView;
+    IBOutlet NSWindow*         window;
 }
 
 - (IBAction)openInFinder:(id)sender;
@@ -29,4 +33,16 @@
 - (IBAction)history:(id)sender;
 - (IBAction)search:(id)sender;
 - (IBAction)reload:(id)sender;
+
+// webview
+- (IBAction)makeTextLarger:(id)sender;
+- (IBAction)makeTextSmaller:(id)sender;
+- (IBAction)goFoward:(id)sender;
+- (IBAction)goBack:(id)sender;
+
+// tab
+- (IBAction)addNewTab:(id)sender;
+- (IBAction)closeTab:(id)sender;
+- (IBAction)selectNextTabViewItem:(id)sender;
+- (IBAction)selectPreviousTabViewItem:(id)sender;
 @end
