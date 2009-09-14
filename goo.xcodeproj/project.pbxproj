@@ -13,6 +13,9 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		C31A3236105E09F3008F1ACF /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31A3235105E09F3008F1ACF /* PSMTabBarControl.framework */; };
 		C31A3262105E0A3A008F1ACF /* PSMTabBarControl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C31A3235105E09F3008F1ACF /* PSMTabBarControl.framework */; };
+		C31A3414105E90FE008F1ACF /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31A3413105E90FE008F1ACF /* Sparkle.framework */; };
+		C31A341D105E9114008F1ACF /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C31A3413105E90FE008F1ACF /* Sparkle.framework */; };
+		C31A3422105E9666008F1ACF /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = C31A3421105E9666008F1ACF /* dsa_pub.pem */; };
 		C365118F0E5EACFE007969B9 /* GemInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C365118E0E5EACFE007969B9 /* GemInfoView.m */; };
 		C365122A0E5EBE09007969B9 /* GooController.m in Sources */ = {isa = PBXBuildFile; fileRef = C36512290E5EBE09007969B9 /* GooController.m */; };
 		C365135F0E5EEB57007969B9 /* goo.icns in Resources */ = {isa = PBXBuildFile; fileRef = C365135E0E5EEB57007969B9 /* goo.icns */; };
@@ -30,6 +33,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C31A341D105E9114008F1ACF /* Sparkle.framework in CopyFiles */,
 				C31A3262105E0A3A008F1ACF /* PSMTabBarControl.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,6 +52,8 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* goo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = goo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C31A3235105E09F3008F1ACF /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = /Users/splyb/Library/Frameworks/PSMTabBarControl.framework; sourceTree = "<absolute>"; };
+		C31A3413105E90FE008F1ACF /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		C31A3421105E9666008F1ACF /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		C365118D0E5EACFE007969B9 /* GemInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemInfoView.h; sourceTree = "<group>"; };
 		C365118E0E5EACFE007969B9 /* GemInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemInfoView.m; sourceTree = "<group>"; };
 		C36512280E5EBE09007969B9 /* GooController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GooController.h; sourceTree = "<group>"; };
@@ -70,6 +76,7 @@
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				C380702C0E5D31BB005E7585 /* WebKit.framework in Frameworks */,
 				C31A3236105E09F3008F1ACF /* PSMTabBarControl.framework in Frameworks */,
+				C31A3414105E90FE008F1ACF /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +109,7 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C31A3413105E90FE008F1ACF /* Sparkle.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				C380702B0E5D31BB005E7585 /* WebKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
@@ -144,6 +152,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C31A3421105E9666008F1ACF /* dsa_pub.pem */,
 				C36514460E5F1CD0007969B9 /* Credits.rtf */,
 				C365135E0E5EEB57007969B9 /* goo.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -211,6 +220,7 @@
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				C365135F0E5EEB57007969B9 /* goo.icns in Resources */,
 				C36514470E5F1CD0007969B9 /* Credits.rtf in Resources */,
+				C31A3422105E9666008F1ACF /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +269,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Library/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -280,6 +291,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Library/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
