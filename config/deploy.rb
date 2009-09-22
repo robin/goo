@@ -104,15 +104,61 @@ def release_notes_content
 end
 
 def upload_files
-  ["#{build_path}/#{build_type}/#{pkg_name}", "#{build_path}/#{release_notes}", "#{build_path}/#{appcast_filename}"].each {|file|
+  [pkg, "#{build_path}/#{release_notes}", "#{build_path}/#{appcast_filename}"].each {|file|
     upload file, upload_path, :roles => 'file_store', :via => :scp
   }
 end
 
+def append_git_version
+  # Change this if your path isn’t here
+  common_git_paths = %w[/usr/local/bin/git /usr/local/git/bin/git /opt/local/bin/git]
+  git_path = ""
+
+  common_git_paths.each do |p|
+    if File.exist?(p)
+      git_path = p
+      break
+    end
+  end
+
+  if git_path == ""
+    puts "Path to git not found"
+    exit
+  end
+
+  command_line = git_path + " rev-parse --short HEAD"
+  sha = `#{command_line}`.chomp
+
+  info_file = "#{build_path}/#{build_type}/#{app_name}.app/Contents/#{File.basename info_plist_path}"
+
+  f = File.open(info_file, "r").read
+  re = /([\t ]+<key>CFBundleVersion<\/key>\n[\t ]+<string>)(.*?)(<\/string>)/
+  f =~ re
+
+  # Get the version info from the source Info.plist file
+  # If the script has already been run we need to remove the git sha
+  # from the bundle’s Info.plist.
+  version = $2.sub(/ \([\w]+\)/, "")
+
+  # Inject the git has into the bundle’s Info.plist
+  sub = "\\1#{version} (#{sha})\\3"
+  f.gsub!(re, sub)
+  File.open(info_file, "w") { |file| file.write(f) }
+end
+
 namespace :xcode do
+  desc 'default'
+  task :default do
+    build
+    package
+    feed
+    upload
+  end
+  
   desc "build xcode project"
   task :build do
     local_run "xcodebuild -configuration #{build_type}"
+    #append_git_version
   end
   
   desc "package"

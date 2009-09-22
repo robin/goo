@@ -1,3 +1,21 @@
+<div class='release'>
+
 h1. Release 0.4
 
-* support tab
+Features:
+
+* tab browsing
+* checking update
+
+</div>
+<div class='release'>
+
+h1. Release 0.3
+
+Features:
+
+* text zooming
+* gem list reloading
+* back/forward
+  
+</div>
