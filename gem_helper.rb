@@ -6,6 +6,7 @@
 #  Copyright (c) 2008 __MyCompanyName__. All rights reserved.
 #
 require 'rubygems'
+require 'rubygems/command'
 require 'rubygems/doc_manager'
 require 'erb'
 require 'cgi'
