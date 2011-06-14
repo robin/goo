@@ -27,6 +27,8 @@
 - (IBAction)openInFinder:(id)sender;
 - (IBAction)openInEditor:(id)sender;
 - (IBAction)openInHomepage:(id)sender;
+- (IBAction)generateRDoc:(id)sender;
+- (IBAction)uninstallGem:(id)sender;
 
 - (IBAction)donate:(id)sender;
 - (IBAction)homepage:(id)sender;

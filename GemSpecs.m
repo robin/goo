@@ -19,8 +19,10 @@
 - (id)init
 {
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"gem_helper" ofType:@"rb"];
-	NSTask *task = [[NSTask alloc] init];
-	[task setLaunchPath:path];
+	NSTask *task = [[[NSTask alloc] init] autorelease];
+    [task setLaunchPath:@"/bin/bash"];
+    NSArray *arguments = [NSArray arrayWithObjects:@"-l", @"-c", path, nil];
+    [task setArguments:arguments];
 	NSPipe *outPipe = [[NSPipe alloc] init];
 	[task setStandardOutput:outPipe];
 	[outPipe release];

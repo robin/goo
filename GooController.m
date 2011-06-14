@@ -103,6 +103,33 @@ static NSString *zoomFactorIdentifier = @"zoom factor";
 	[[NSWorkspace sharedWorkspace] openURL:url];
 }
 
+- (void)run:(NSString*)cmd
+{
+    NSTask *task = [[[NSTask alloc] init] autorelease];
+    [task setLaunchPath:@"/bin/bash"];
+    NSArray *arguments = [NSArray arrayWithObjects:@"-l", @"-c", cmd, nil];
+    [task setArguments:arguments];
+	[task launch];
+    [task waitUntilExit];
+    [self reload:self];
+
+}
+
+- (IBAction)generateRDoc:(id)sender {
+	NSDictionary *selected = [[gemArrayController selectedObjects] objectAtIndex:0];
+    NSString *name = [selected objectForKey:@"name"];
+    NSString *cmd = [NSString stringWithFormat:@"gem rdoc %@ --no-ri", name];
+    [self run:cmd];
+}
+
+- (IBAction)uninstallGem:(id)sender {
+	NSDictionary *selected = [[gemArrayController selectedObjects] objectAtIndex:0];
+    NSString *name = [selected objectForKey:@"name"];
+    NSString *version = [selected objectForKey:@"version"];
+    NSString *cmd = [NSString stringWithFormat:@"gem uninstall %@ -v %@", name, version];
+    [self run:cmd];
+}
+
 #pragma mark browser
 - (IBAction)history:(id)sender
 {

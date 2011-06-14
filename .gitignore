@@ -1,4 +1,6 @@
 build/
 goo.xcodeproj/splyb.*
+goo.xcodeproj/project.xcworkspace
+goo.xcodeproj/xcuserdata
 Frameworks/
 dsa_priv.pem
