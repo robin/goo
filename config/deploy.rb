@@ -2,9 +2,10 @@ require "builder"
 require "osx/cocoa"
 require "active_support"
 require "RedCloth"
+require "fileutils"
 
 set :build_type, "Release"
-set :build_path, '/Users/splyb/Projects/xcode.build'
+set :build_path, '/Users/splyb/Library/Developer/Xcode/DerivedData/goo-curvgfurrkdzghcnjsbzbwxkdqic/Build/Products'
 set :info_plist_path, 'Info.plist'
 set :app_name, 'goo'
 set :base_url , "http://www.robinlu.com/goo"
@@ -58,7 +59,7 @@ def make_appcast
         xml.description("#{app_name} updates")
         xml.link(base_url)
         xml.language('en')
-        xml.pubDate Time.now.to_s(:rfc822)
+        xml.pubDate Time.now.to_s
         # xml.lastBuildDate(Time.now.rfc822)
         xml.atom(:link, :href => "#{base_url}/#{appcast_filename}", 
                  :rel => "self", :type => "application/rss+xml")
@@ -66,7 +67,7 @@ def make_appcast
         xml.item do
           xml.title("#{app_name} #{app_version}")
           xml.tag! "sparkle:releaseNotesLink", "#{base_url}/#{release_notes}"
-          xml.pubDate Time.now.to_s(:rfc822) #(File.mtime(pkg))
+          xml.pubDate Time.now.to_s #(File.mtime(pkg))
           xml.guid("#{app_name}-#{app_version}", :isPermaLink => "false")
           xml.enclosure(:url => "#{base_url}/#{pkg_name}", 
                         :length => "#{File.size(pkg)}", 

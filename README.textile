@@ -11,7 +11,5 @@ h3. Features
 * Open gem directory in Finder.
 * Open gem in TextMate.
 * Open gem homepage.
-
-h3. Download
-
-Please go to the "home page":http://www.robinlu.com/blog/goo of Goo for the newest binary. 
+* Generate RDoc
+* Uninstall Gem
