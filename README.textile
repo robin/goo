@@ -18,5 +18,5 @@ h3. Suggestion
 
 I highly recommend you to install the Hanna gem for better rdoc template.
   
-  gem install hanna
+bq. gem install hanna
   
