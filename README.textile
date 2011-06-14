@@ -13,3 +13,10 @@ h3. Features
 * Open gem homepage.
 * Generate RDoc
 * Uninstall Gem
+
+h3. Suggestion
+
+I highly recommend you to install the Hanna gem for better rdoc template.
+  
+  gem install hanna
+  

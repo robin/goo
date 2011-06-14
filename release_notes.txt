@@ -1,5 +1,16 @@
 <div class='release'>
 
+h1. Release 0.5
+
+Features:
+
+* rvm aware. Thanks for peter@joycodes
+* menu to generate rdoc
+* menu to uninstall gem
+
+</div>
+<div class='release'>
+
 h1. Release 0.4
 
 Features:
